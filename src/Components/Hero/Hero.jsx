@@ -12,7 +12,7 @@ const Hero = () => {
         <p>Dedicated MERN Stack Developer proficient in JavaScript, React.js, Node.js, Express.js, and MongoDB, with strong expertise in responsive design using Tailwind CSS and modern front-end technologies.</p>
         <div className="hero-action">
             <div className="hero-connect"> <AnchorLink className='anchor-link' offset={50} href='#contact'>Connect With Me</AnchorLink></div>
-            <div className="hero-resume"> <a href="/Abilasha_cv.pdf" download="Abilasha_cv.pdf" target='blank'>My Resume</a>  </div>
+            <div className="hero-resume"> <a href=" " download="Abilasha_cv.pdf" target='blank'>My Resume</a>  </div>
         </div>
              
     </div>
