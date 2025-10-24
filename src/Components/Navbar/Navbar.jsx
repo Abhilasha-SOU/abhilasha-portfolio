@@ -24,11 +24,19 @@ const Navbar = () => {
     menuRef.current.style.right = "-350px";
   }
 
-  
+   const [color, setColor] = useState(false)
+    const changeColor = ()=>{
+        if(window.scrollY >=10){
+            setColor(true)
+        }else{
+            setColor(false)
+        }
+    }
+window.addEventListener("scroll", changeColor)
 
 
   return (
-    <div className='navbar'>
+    <div className={"navbar navbar-bg":"navbar"}>
         <h1>MyPortfolio</h1>
          <img src={menu_open} onClick={openMenu}  alt="" className='nav-mob-open' />
          <ul ref={menuRef} className="nav-menu">
