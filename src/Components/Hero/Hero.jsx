@@ -9,7 +9,7 @@ const Hero = () => {
       <div className='mptydiv'></div>
         
         <h1><span>I'm Abilasha Soundar,</span></h1>
-        <p>Dedicated MERN Stack Developer proficient in JavaScript, React.js, Node.js, Express.js, and MongoDB, with strong expertise in responsive design using Tailwind CSS and modern front-end technologies.</p>
+        <p>Python Developer specializing in FastAPI, PostgreSQL, React.js, and TypeScript, focused on building scalable web applications and delivering high-performance, user-friendly solutions.</p>
         <div className="hero-action">
             <div className="hero-connect"> <AnchorLink className='anchor-link' offset={50} href='#contact'>Connect With Me</AnchorLink></div>
             <div className="hero-resume"> <a href=" "  target='blank'>My Resume</a>  </div>
