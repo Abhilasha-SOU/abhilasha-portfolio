@@ -4,34 +4,62 @@ import theme_pattern from "../../assets/theme_pattern.svg";
 import mail_icon from "../../assets/mail_icon.svg";
 import call_icon from "../../assets/call_icon.svg"
 import location_icon from "../../assets/location_icon.svg";
+import { ref, push } from "firebase/database";
+import { db } from "../../firebaseconfig";
 
 
+// const Contact = () => {
+
+//  const onSubmit = async (event) => {
+//     event.preventDefault();
+//     const formData = new FormData(event.target);
+
+//     formData.append("access_key", "e614a46b-d2c0-4794-a8f5-bd887b34a6ce");
+
+//     const object = Object.fromEntries(formData);
+//     const json = JSON.stringify(object);
+
+//     const res = await fetch("https://api.web3forms.com/submit", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json"
+//       },
+//       body: json
+//     }).then((res) => res.json());
+
+//     if (res.success) {
+//       console.log("Success", res);
+//     }
+//   };
 
 const Contact = () => {
 
- const onSubmit = async (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "e614a46b-d2c0-4794-a8f5-bd887b34a6ce");
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+    try {
+      const messageRef = ref(db, "messages");
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
-    }).then((res) => res.json());
+      await push(messageRef, {
+        name,
+        email,
+        message
+      });
 
-    if (res.success) {
-      console.log("Success", res);
+      alert("Message sent successfully!");
+      event.target.reset();
+
+    } catch (error) {
+      console.log(error);
+      alert("Error sending message");
     }
   };
-
   return (
     <div id='contact' className='contact'>
         <div className="contact-title">
